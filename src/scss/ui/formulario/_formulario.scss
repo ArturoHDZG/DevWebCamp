@@ -1,11 +1,11 @@
 @use 'base/mixins' as m;
 @use 'base/variables' as v;
 
-.form {
+.formulario {
   display: flex;
   flex-direction: column;
 
-  &__field {
+  &__campo {
     display: flex;
     flex-direction: column;
     gap: 1rem;
