@@ -50,6 +50,7 @@
   grid-template-columns: repeat($columnas, 1fr);
 }
 
+/* Contenedores */
 @mixin contenedor-sm {
   margin: 0 auto;
   width: min(95%, 60rem);
@@ -58,4 +59,17 @@
 @mixin contenedor {
   margin: 0 auto;
   width: min(95%, 120rem);
+}
+
+/* Utilidades */
+@mixin headings {
+  font-family: v.$fuente_principal;
+  font-weight: v.$black;
+  margin: 2rem 0;
+}
+
+@mixin nombre-pagina {
+  @include headings;
+  margin: 6rem 0 3rem 0;
+  text-align: center;
 }

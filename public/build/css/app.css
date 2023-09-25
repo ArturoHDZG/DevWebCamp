@@ -91,6 +91,8 @@ textarea:not([rows]) {
 }
 
 /** Media Queries **/
+/* Contenedores */
+/* Utilidades */
 html {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -114,6 +116,12 @@ img {
   height: auto;
 }
 
+h1, h2, h3 {
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  margin: 2rem 0;
+}
+
 h1 {
   font-size: 4rem;
 }
@@ -127,6 +135,14 @@ h3 {
 }
 
 .text-center {
+  text-align: center;
+}
+
+[class$=__heading] {
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  margin: 2rem 0;
+  margin: 6rem 0 3rem 0;
   text-align: center;
 }
 
