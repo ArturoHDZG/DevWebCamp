@@ -49,3 +49,13 @@
   gap: $espaciado;
   grid-template-columns: repeat($columnas, 1fr);
 }
+
+@mixin contenedor-sm {
+  margin: 0 auto;
+  width: min(95%, 60rem);
+}
+
+@mixin contenedor {
+  margin: 0 auto;
+  width: min(95%, 120rem);
+}
