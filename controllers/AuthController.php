@@ -145,7 +145,7 @@ class AuthController
 
     // Muestra la vista
     $router->render('auth/olvide', [
-      'titulo' => 'Olvide mi Password',
+      'titulo' => 'Olvide mi Contraseña',
       'alertas' => $alertas
     ]);
   }
