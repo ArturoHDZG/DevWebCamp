@@ -101,7 +101,7 @@ class AuthController
 
     // Render a la vista
     $router->render('auth/registro', [
-      'titulo' => 'Crea tu cuenta en DevWebcamp',
+      'titulo' => 'Crea tu cuenta en DevWebCamp',
       'usuario' => $usuario,
       'alertas' => $alertas
     ]);
