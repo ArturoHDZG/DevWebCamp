@@ -2,11 +2,22 @@
 @use 'base/variables' as v;
 
 .header {
+  background-repeat: no-repeat;
+  background-position: top left, bottom right, center center, center center;
+  background-size: 40rem, 40rem, cover, cover;
   background-image:
     url(../img/grafico.svg),
     url(../img/grafico.svg),
-    linear-gradient(to right, rgba(v.$negro, 1), rgba(v.$negro, .5)),
-    image-set(url(../img/header.avif) type("image/avif") 1x, url(../img/header.webp) type("image/webp") 1x, url(../img/header.jpg) type("image/jpeg") 1x);
+    linear-gradient(
+      to right,
+      rgba(v.$negro, 1),
+      rgba(v.$negro, .5)
+    ),
+    image-set(
+      url(../img/header.avif) type("image/avif") 1x,
+      url(../img/header.webp) type("image/webp") 1x,
+      url(../img/header.jpg) type("image/jpeg") 1x
+    );
 
   min-height: 60rem;
 
