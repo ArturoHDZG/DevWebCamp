@@ -74,6 +74,17 @@
   text-align: center;
 }
 
+@mixin logo {
+  color: v.$blanco;
+  margin-bottom: 2rem;
+  text-align: center;
+
+  @include desktop {
+    margin: 0;
+    text-align: left;
+  }
+}
+
 /* Estilos Tipografía */
 @mixin texto-fluido($min, $max) {
   font-size: clamp($min, -0.8rem + 10vw, $max);
