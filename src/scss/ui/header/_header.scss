@@ -9,4 +9,36 @@
     image-set(url(../img/header.webp) 1x, url(../img/header.avif) 1x, url(../img/header.jpg) 1x);
 
   min-height: 60rem;
+
+  &__contenedor { @include m.contenedor; }
+
+  &__navegacion {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 5rem 0;
+
+    @include m.tablet { justify-content: flex-end; }
+  }
+
+  &__enlace {
+    color: v.$blanco;
+    font-size: 1.4rem;
+    font-weight: v.$bold;
+    text-transform: uppercase;
+
+    &:hover { color: v.$azul; }
+  }
+
+  &__contenido {
+    padding-top: 10rem;
+
+    @include m.tablet {
+      padding-top: 5rem;
+    }
+  }
+
+  &__logo {
+    @include m.texto-fluido(2rem, 8rem);
+  }
 }
