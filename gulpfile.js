@@ -25,14 +25,16 @@ const paths = {
   js: 'src/js/**/*.js',
   imagenes: 'src/img/**/*'
 };
+
 function css() {
   return src(paths.scss)
     .pipe(sourcemaps.init())
     .pipe(sass({ outputStyle: 'expanded' }))
-    // .pipe( postcss([autoprefixer(), cssnano()]))
+    .pipe( postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write('.'))
     .pipe(dest('public/build/css'));
 }
+
 function javascript() {
   return src(paths.js)
     .pipe(sourcemaps.init())
