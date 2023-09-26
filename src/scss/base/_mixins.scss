@@ -85,6 +85,46 @@
   }
 }
 
+@mixin menu-social($color, $size) {
+  &__enlace {
+    &::before {
+      color: $color;
+      font-size: $size;
+      display: inline-block;
+      font-family: "Font Awesome 6 Brands", sans-serif;
+      font-style: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    &[href*="facebook"]::before {
+      content: "\f39e";
+    }
+
+    &[href*="twitter"]::before {
+      content: "\f099";
+    }
+
+    &[href*="youtube"]::before {
+      content: "\f167";
+    }
+
+    &[href*="instagram"]::before {
+      content: "\f16d";
+    }
+
+    &[href*="tiktok"]::before {
+      content: "\e07b";
+    }
+
+    &[href*="github"]::before {
+      content: "\f09b";
+    }
+  }
+
+  &__ocultar { display: none; }
+}
+
 /* Estilos Tipografía */
 @mixin texto-fluido($min, $max) {
   font-size: clamp($min, -0.8rem + 10vw, $max);
