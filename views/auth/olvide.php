@@ -2,7 +2,9 @@
   <h2 class="auth__heading"><?php echo $titulo ?></h2>
   <p class="auth__texto">Recupera el acceso a tu Cuenta</p>
 
-  <form class="formulario">
+  <?php require_once __DIR__ . '/../templates/alertas.php' ?>
+
+  <form class="formulario" method="POST" action="/olvide">
     <div class="formulario__campo">
       <label for="email" class="formulario__label">Email</label>
       <input

@@ -19,7 +19,7 @@ class AuthController
       $alertas = $usuario->validarLogin();
 
       if(empty($alertas)) {
-        // Verificar quel el usuario exista
+        // Verificar que el el usuario exista
         $usuario = Usuario::where('email', $usuario->email);
         if(!$usuario || !$usuario->confirmado ) {
           Usuario::setAlerta('error', 'El Usuario No Existe o no esta confirmado');
@@ -35,7 +35,7 @@ class AuthController
             $_SESSION['admin'] = $usuario->admin ?? null;
 
           } else {
-            Usuario::setAlerta('error', 'Password Incorrecto');
+            Usuario::setAlerta('error', 'Contraseña Incorrecta');
           }
         }
       }
@@ -76,7 +76,7 @@ class AuthController
           $alertas = Usuario::getAlertas();
 
         } else {
-          // Hashear el password
+          // Hash password
           $usuario->hashPassword();
 
           // Eliminar password2
@@ -150,7 +150,7 @@ class AuthController
     ]);
   }
 
-  public static function reestablecer(Router $router)
+  public static function recuperar(Router $router)
   {
     $token = s($_GET['token']);
     $token_valido = true;
@@ -173,7 +173,7 @@ class AuthController
       $alertas = $usuario->validarPassword();
 
       if(empty($alertas)) {
-        // Hashear el nuevo password
+        // Hash nuevo password
         $usuario->hashPassword();
 
         // Eliminar el Token
@@ -182,9 +182,9 @@ class AuthController
         // Guardar el usuario en la BD
         $resultado = $usuario->guardar();
 
-        // Redireccionar
+        // Redirección
         if($resultado) {
-          header('Location: /');
+          header('Location: /login');
         }
       }
     }
@@ -192,8 +192,8 @@ class AuthController
     $alertas = Usuario::getAlertas();
 
     // Muestra la vista
-    $router->render('auth/reestablecer', [
-      'titulo' => 'Reestablecer Password',
+    $router->render('auth/recuperar', [
+      'titulo' => 'Restablecer Contraseña',
       'alertas' => $alertas,
       'token_valido' => $token_valido
     ]);
@@ -231,7 +231,7 @@ class AuthController
     }
 
     $router->render('auth/confirmar', [
-      'titulo' => 'Confirma tu cuenta DevWebcamp',
+      'titulo' => 'Confirma tu cuenta DevWebCamp',
       'alertas' => Usuario::getAlertas()
     ]);
   }

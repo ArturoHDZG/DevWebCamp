@@ -66,10 +66,10 @@ class Usuario extends ActiveRecord
       self::$alertas['error'][] = 'El Password no puede ir vacío';
     }
     if(strlen($this->password) < 6) {
-      self::$alertas['error'][] = 'El password debe contener al menos 6 caracteres';
+      self::$alertas['error'][] = 'El Password debe contener al menos 6 caracteres';
     }
     if($this->password !== $this->password2) {
-      self::$alertas['error'][] = 'Los password son diferentes';
+      self::$alertas['error'][] = 'Los Password son diferentes';
     }
 
     return self::$alertas;
@@ -122,7 +122,7 @@ class Usuario extends ActiveRecord
     return password_verify($this->password_actual, $this->password );
   }
 
-  // Hashea el password
+  // Hash password
   public function hashPassword() : void
   {
     $this->password = password_hash($this->password, PASSWORD_BCRYPT);
