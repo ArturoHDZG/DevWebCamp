@@ -8,15 +8,15 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@arturo_hdzg">
   <meta name="twitter:creator" content="@arturo_hdzg">
-  <meta name="twitter:title" content="DevWebCamp"> <!-- TODO -->
-  <meta name="twitter:description" content=""> <!-- TODO -->
+  <meta name="twitter:title" content="DevWebCamp">
+  <meta name="twitter:description" content="DevWebCamp: Talleres y Conferencias">
   <meta name="twitter:image" content="https://devwebcamp.ticocasas.domcloud.io/devwebcamp-preview.jpg">
-  <meta property="og:title" content=""> <!-- TODO -->
-  <meta property="og:description" content="DevWebCamp"> <!-- TODO -->
+  <meta property="og:title" content="DevWebCamp">
+  <meta property="og:description" content="DevWebCamp: Talleres y Conferencias">
   <meta property="og:image" content="https://devwebcamp.ticocasas.domcloud.io/devwebcamp-preview.jpg">
   <meta property="og:url" content="https://devwebcamp.ticocasas.domcloud.io">
   <meta property="og:type" content="website">
-  <meta name="keywords" content=""> <!-- TODO -->
+  <meta name="keywords" content="Talleres, Conferencias, BootCamp, IT">
   <meta name="msapplication-TileColor" content="#2d89ef">
   <meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png">
   <meta name="theme-color" content="#ffffff">
