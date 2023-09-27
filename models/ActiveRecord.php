@@ -160,13 +160,13 @@ class ActiveRecord
     $atributos = $this->sanitizarAtributos();
 
     // Insertar en la base de datos
-    $query = " INSERT INTO " . static::$tabla . " ( ";
+    $query = " INSERT INTO " . static::$tabla . " (";
     $query .= join(', ', array_keys($atributos));
-    $query .= " ) VALUES (' ";
+    $query .= ") VALUES ('";
     $query .= join("', '", array_values($atributos));
-    $query .= " ') ";
+    $query .= "') ";
 
-    // debuguear($query); // Descomentar si no te funciona algo
+    // debug($query); // Descomentar si no te funciona algo
 
     // Resultado de la consulta
     $resultado = self::$db->query($query);
