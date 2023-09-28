@@ -90,4 +90,21 @@
       padding: 1rem 5rem 3rem 5rem;
     }
   }
+
+  &__contenedor-boton {
+    @include m.tablet {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__boton {
+    @include m.boton(v.$azul, v.$blanco);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+
+    @include m.tablet {
+      width: auto;
+    }
+  }
 }
