@@ -137,13 +137,9 @@ class AuthController
           $email = new Email( $usuario->email, $usuario->nombre, $usuario->token );
           $email->enviarInstrucciones();
 
-          // Imprimir la alerta
-          // Usuario::setAlerta('exito', 'Hemos enviado las instrucciones a tu email');
-
           $alertas['exito'][] = 'Hemos enviado las instrucciones a tu email';
 
         } else {
-          // Usuario::setAlerta('error', 'El Usuario no existe o no esta confirmado');
           $alertas['error'][] = 'El Usuario no existe o no esta confirmado';
         }
       }
