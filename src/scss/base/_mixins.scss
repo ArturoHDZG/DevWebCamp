@@ -125,6 +125,19 @@
   &__ocultar { display: none; }
 }
 
+@mixin enlace {
+  all: unset;
+  color: v.$blanco;
+  font-size: 1.4rem;
+  font-weight: v.$bold;
+  text-transform: uppercase;
+
+  &:hover {
+    color: v.$azul;
+    cursor: pointer;
+  }
+}
+
 /* Estilos Tipografía */
 @mixin texto-fluido($min, $max) {
   font-size: clamp($min, -0.8rem + 10vw, $max);
