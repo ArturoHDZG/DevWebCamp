@@ -65,7 +65,8 @@
     300ms color ease-in-out,
     300ms border-radius ease-in-out;
 
-    &:hover {
+    &:hover,
+    &--actual {
       background-color: lighten(v.$gris-oscuro, 20%);
       border-radius: 1rem;
       color: v.$blanco;
