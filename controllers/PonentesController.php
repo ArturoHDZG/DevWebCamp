@@ -2,8 +2,9 @@
 
 namespace Controllers;
 
-use Model\Ponente;
 use MVC\Router;
+use Model\Ponente;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PonentesController
 {
@@ -20,6 +21,18 @@ class PonentesController
     $ponente = new Ponente;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      if (!empty($_FILES['imagen']['tmp_name'])) {
+        $carpeta_imagenes = '../public/img/speakers';
+
+        // Crear carpeta si no existe
+        if (!is_dir($carpeta_imagenes)) {
+          mkdir($carpeta_imagenes, 0777, true);
+        }
+
+        $imagen_png = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 800)->encode('png', 80);
+        $imagen_webp = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 800)->encode('webp', 80);
+      }
+
       $ponente->sincronizar($_POST);
 
       // Validar
