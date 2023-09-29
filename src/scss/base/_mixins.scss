@@ -56,6 +56,11 @@
   width: min(95%, 60rem);
 }
 
+@mixin contenedor-md {
+  margin: 0 auto;
+  width: min(95%, 80rem);
+}
+
 @mixin contenedor {
   margin: 0 auto;
   width: min(95%, 140rem);
@@ -136,6 +141,11 @@
     color: v.$azul;
     cursor: pointer;
   }
+}
+
+@mixin shadow {
+  box-shadow:
+  rgba(50, 50, 93, 0.25) 0rem 1.3rem 2.7rem -.5rem, rgba(0, 0, 0, 0.3) 0rem .8rem 1.6rem -.8rem;
 }
 
 /* Estilos Tipografía */
