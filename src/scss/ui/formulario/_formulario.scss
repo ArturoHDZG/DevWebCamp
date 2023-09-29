@@ -34,6 +34,13 @@
     padding: 1rem;
     border: .1rem solid darken(v.$gris-claro, 20);
     border-radius: .5rem;
+
+    &--file { border: none; }
+  }
+
+  &__p {
+    font-size: 1.4rem;
+    font-style: italic;
   }
 
   &__submit {
