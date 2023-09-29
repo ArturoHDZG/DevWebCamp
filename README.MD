@@ -17,9 +17,9 @@ This is the code repository for the "DevWebCamp" project created by ArturoHDZG.
 - **MySQL**
   - *Apache*
 
-## Recent Updates (2023/09/25)
+## Recent Updates (2023/09/28)
 
-- Start Project
+- Work on Frontend with SASS and BEM Methodology.
 
 ## Installation Guide
 
@@ -69,7 +69,7 @@ To import the database, follow these steps:
 ### Running the Project
 
 1. Serve the project by navigating to the `/public` directory and running the command `php -S localhost:3000`.
-2. In a separate terminal, run the command `npx gulp` to compile SASS and execute other dependencies.
+2. In a separate terminal, run the command `npm run dev` to compile SASS and execute other dependencies.
 
 After completing these steps, your project should be up and running.
 
