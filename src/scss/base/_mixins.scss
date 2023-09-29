@@ -143,6 +143,32 @@
   }
 }
 
+@mixin reset-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin tags {
+  @include reset-lista;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+
+  > li {
+    background-color: v.$azul;
+    border-radius: .5rem;
+    color: v.$blanco;
+    font-size: 1.4rem;
+    font-weight: v.$bold;
+    padding: 1rem;
+    text-transform: uppercase;
+
+    &:hover { cursor: pointer; }
+  }
+}
+
 @mixin shadow {
   box-shadow:
   rgba(50, 50, 93, 0.25) 0rem 1.3rem 2.7rem -.5rem, rgba(0, 0, 0, 0.3) 0rem .8rem 1.6rem -.8rem;

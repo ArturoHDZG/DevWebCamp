@@ -41,7 +41,7 @@
     function eliminarTag(e) {
       e.target.remove();
       tags = tags.filter(tag => tag !== e.target.textContent);
-      console.log(tags);
+      actualizarInputHidden();
     }
 
     function actualizarInputHidden() {

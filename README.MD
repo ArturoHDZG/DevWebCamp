@@ -19,7 +19,7 @@ This is the code repository for the "DevWebCamp" project created by ArturoHDZG.
 
 ## Recent Updates (2023/09/28)
 
-- Work on Frontend with SASS and BEM Methodology.
+- Tags completed.
 
 ## Installation Guide
 
