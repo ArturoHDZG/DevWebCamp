@@ -31,12 +31,33 @@ class PonentesController
 
         $imagen_png = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 800)->encode('png', 80);
         $imagen_webp = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 800)->encode('webp', 80);
+
+        $nombre_imagen = md5(uniqid(rand(), true));
+
+        $_POST['imagen'] = $nombre_imagen;
       }
+
+      // Convertir array de redes sociales a string
+      $_POST['redes'] = json_encode($_POST['redes'], JSON_UNESCAPED_SLASHES);
 
       $ponente->sincronizar($_POST);
 
       // Validar
       $alertas = $ponente->validar();
+
+      //Guardar registro
+      if (empty($alertas)) {
+        //Guardar imágenes en el servidor
+        $imagen_png->save($carpeta_imagenes . '/' . $nombre_imagen . ".png");
+        $imagen_webp->save($carpeta_imagenes . '/' . $nombre_imagen . ".webp");
+
+        // Guardar datos en la BD
+        $resultado = $ponente->guardar();
+
+        if ($resultado) {
+          header('Location: /admin/ponentes');
+        }
+      }
     }
 
     $router->render('admin/ponentes/crear', [
