@@ -25,6 +25,8 @@ class Ponente extends ActiveRecord
   public $tags;
   public $redes;
 
+  public $imagen_actual;
+
   public function __construct($args = [])
   {
     $this->id = $args['id'] ?? null;
