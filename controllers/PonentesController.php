@@ -21,6 +21,7 @@ class PonentesController
   public static function crear(Router $router)
   {
     $alertas = [];
+    $redes = [];
     $ponente = new Ponente;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -45,6 +46,8 @@ class PonentesController
 
       $ponente->sincronizar($_POST);
 
+      $redes = json_decode($ponente->redes);
+
       // Validar
       $alertas = $ponente->validar();
 
@@ -66,7 +69,8 @@ class PonentesController
     $router->render('admin/ponentes/crear', [
       'titulo' => 'Registrar Ponente',
       'alertas' => $alertas,
-      'ponente' => $ponente
+      'ponente' => $ponente,
+      'redes' => $redes
     ]);
   }
 
@@ -84,6 +88,7 @@ class PonentesController
 
     // Recuperar Registro de la BD
     $ponente = Ponente::find($id);
+    $redes = json_decode($ponente->redes);
 
     if (!$ponente) {
       header('Location: /admin/ponentes');
@@ -94,7 +99,8 @@ class PonentesController
     $router->render('admin/ponentes/editar', [
       'titulo' => 'Editar Ponente',
       'alertas' => $alertas,
-      'ponente' => $ponente
+      'ponente' => $ponente,
+      'redes' => $redes
     ]);
   }
 }
