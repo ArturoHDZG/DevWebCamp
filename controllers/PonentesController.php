@@ -147,4 +147,35 @@ class PonentesController
       'redes' => $redes
     ]);
   }
+
+  public static function eliminar()
+  {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $id = $_POST['id'];
+      $ponente = Ponente::find($id);
+
+      if (!isset($ponente)) {
+        header('Location: /admin/ponentes');
+      }
+
+      // Obtén la ruta a las imágenes
+      $ruta_imagen_png = "../public/img/speakers/{$ponente->imagen}.png";
+      $ruta_imagen_webp = "../public/img/speakers/{$ponente->imagen}.webp";
+
+      // Comprueba si las imágenes existen y, en caso afirmativo, las elimina
+      if (file_exists($ruta_imagen_png)) {
+        unlink($ruta_imagen_png);
+      }
+
+      if (file_exists($ruta_imagen_webp)) {
+        unlink($ruta_imagen_webp);
+      }
+
+      $resultado = $ponente->eliminar();
+
+      if ($resultado) {
+        header('Location: /admin/ponentes');
+      }
+    }
+  }
 }
