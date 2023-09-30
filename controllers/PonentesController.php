@@ -10,6 +10,10 @@ class PonentesController
 {
   public static function index(Router $router)
   {
+    if (!isAdmin()) {
+      header('Location: /login');
+    }
+
     $ponentes = Ponente::all();
 
     $router->render('admin/ponentes/index', [
@@ -20,6 +24,10 @@ class PonentesController
 
   public static function crear(Router $router)
   {
+    if (!isAdmin()) {
+      header('Location: /login');
+    }
+
     $alertas = [];
     $redes = [];
     $ponente = new Ponente;
@@ -76,6 +84,10 @@ class PonentesController
 
   public static function editar(Router $router)
   {
+    if (!isAdmin()) {
+      header('Location: /login');
+    }
+
     $alertas = [];
 
     // Validar ID
@@ -150,6 +162,10 @@ class PonentesController
 
   public static function eliminar()
   {
+    if (!isAdmin()) {
+      header('Location: /login');
+    }
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $id = $_POST['id'];
       $ponente = Ponente::find($id);
