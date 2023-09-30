@@ -16,9 +16,7 @@
   }
 
   &__tr {
-    &:nth-child(even) {
-      background-color: v.$gris-claro;
-    }
+    &:nth-child(even) { background-color: v.$gris-claro; }
   }
 
   &__td {
@@ -42,5 +40,7 @@
     &--editar { color: v.$azul; }
 
     &--eliminar { color: v.$rojo; }
+
+    &:hover { cursor: pointer; }
   }
 }

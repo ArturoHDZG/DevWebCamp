@@ -40,7 +40,9 @@ $router->get('/admin/dashboard', [DashboardController::class, 'index']);
 // Area de Administración - Ponentes
 $router->get('/admin/ponentes', [PonentesController::class, 'index']);
 $router->get('/admin/ponentes/crear', [PonentesController::class, 'crear']);
+$router->get('/admin/ponentes/editar', [PonentesController::class, 'editar']);
 $router->post('/admin/ponentes/crear', [PonentesController::class, 'crear']);
+$router->post('/admin/ponentes/editar', [PonentesController::class, 'editar']);
 
 // Area de Administración - Eventos
 $router->get('/admin/eventos', [EventosController::class, 'index']);
