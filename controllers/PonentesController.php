@@ -15,11 +15,20 @@ class PonentesController
       header('Location: /login');
     }
 
-    $paginaActual = 1;
-    $registrosPorPagina = 10;
-    $totalRegistros = 100;
+    $paginaActual = $_GET['page'];
+    $paginaActual = filter_var($paginaActual, FILTER_VALIDATE_INT);
 
-    $paginacion = new Paginacion($paginaActual, $registrosPorPagina, $totalRegistros);
+    if (!$paginaActual || $paginaActual < 1) {
+      header('Location: /admin/ponentes?page=1');
+    }
+
+    $registrosPorPagina = 10;
+    $totalRegistros = Ponente::total();
+    $paginacion = new Paginacion(
+      $paginaActual,
+      $registrosPorPagina,
+      $totalRegistros
+    );
 
     $ponentes = Ponente::all();
 
