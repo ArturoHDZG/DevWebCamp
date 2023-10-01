@@ -215,4 +215,10 @@ class ActiveRecord
     $total = $resultado->fetch_array();
     return array_shift($total);
   }
+
+  public static function paginar($porPagina, $offset)
+  {
+    $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT {$porPagina} OFFSET {$offset} ";
+    return self::consultarSQL($query);
+  }
 }
