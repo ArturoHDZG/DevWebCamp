@@ -53,3 +53,5 @@
     <p class="text-center">No Hay Ponentes Registrados</p>
   <?php endif; ?>
 </div>
+
+<?php echo $paginacion ?>

@@ -41,4 +41,40 @@ class Paginacion
     $siguiente = $this->paginaActual + 1;
     return ($siguiente <= $this->totalPaginas()) ? $siguiente : false;
   }
+
+  public function enlaceAnterior()
+  {
+    $html = '';
+
+    if ($this->paginaAnterior()) {
+      $html .= "<a class=\"paginacion__enlace paginacion__enlace..texto\" href=\"?page={$this->paginaAnterior()}\">&laquo; Anterior</a>";
+    }
+
+    return $html;
+  }
+
+  public function enlaceSiguiente()
+  {
+    $html = '';
+
+    if ($this->paginaSiguiente()) {
+      $html .= "<a class=\"paginacion__enlace paginacion__enlace..texto\" href=\"?page={$this->paginaSiguiente()}\">Siguiente &raquo;</a>";
+    }
+
+    return $html;
+  }
+
+  public function paginacion()
+  {
+    $html = '';
+
+    if ($this->totalRegistros > 1) {
+      $html .= '<div class="paginacion">';
+      $html .= $this->enlaceAnterior();
+      $html .= $this->enlaceSiguiente();
+      $html .= '</div>';
+    }
+
+    return $html;
+  }
 }
