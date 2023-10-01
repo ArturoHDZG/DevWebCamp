@@ -22,7 +22,7 @@ class PonentesController
       header('Location: /admin/ponentes?page=1');
     }
 
-    $registrosPorPagina = 5;
+    $registrosPorPagina = 10;
     $totalRegistros = Ponente::total();
     $paginacion = new Paginacion(
       $paginaActual,

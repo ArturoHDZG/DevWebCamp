@@ -17,9 +17,10 @@ This is the code repository for the "DevWebCamp" project created by ArturoHDZG.
 - **MySQL**
   - *Apache*
 
-## Recent Updates (2023/09/28)
+## Recent Updates (2023/10/01)
 
-- Tags completed.
+- *"Ponentes"* section complete.
+- Added registry pagination method.
 
 ## Installation Guide
 
