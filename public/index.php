@@ -47,6 +47,7 @@ $router->post('/admin/ponentes/eliminar', [PonentesController::class, 'eliminar'
 
 // Area de Administración - Eventos
 $router->get('/admin/eventos', [EventosController::class, 'index']);
+$router->get('/admin/eventos/crear', [EventosController::class, 'crear']);
 
 // Area de Administración - Usuarios Registrados
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
