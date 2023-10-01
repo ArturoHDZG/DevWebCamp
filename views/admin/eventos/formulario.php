@@ -47,6 +47,20 @@
       value="<?php echo $ponente->pais ?? ''; ?>"
     >
   </div>
+
+  <div class="formulario__campo">
+    <label for="categoria" class="formulario__label">Tipo de Evento</label>
+    <select
+      id="categoria"
+      name="categoria_id"
+      class="formulario__select"
+    >
+      <option value="">-- Seleccionar --</option>
+      <?php foreach ($categorias as $categoria) : ?>
+        <option value="<?php echo $categoria->id; ?>"><?php echo $categoria->nombre; ?></option>
+      <?php endforeach; ?>
+    </select>
+  </div>
 </fieldset>
 
 <fieldset class="formulario__fieldset">
