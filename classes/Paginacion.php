@@ -47,7 +47,7 @@ class Paginacion
     $html = '';
 
     if ($this->paginaAnterior()) {
-      $html .= "<a class=\"paginacion__enlace paginacion__enlace..texto\" href=\"?page={$this->paginaAnterior()}\">&laquo; Anterior</a>";
+      $html .= "<a class=\"paginacion__enlace paginacion__enlace--texto\" href=\"?page={$this->paginaAnterior()}\">&laquo; Anterior</a>";
     }
 
     return $html;
@@ -58,7 +58,7 @@ class Paginacion
     $html = '';
 
     if ($this->paginaSiguiente()) {
-      $html .= "<a class=\"paginacion__enlace paginacion__enlace..texto\" href=\"?page={$this->paginaSiguiente()}\">Siguiente &raquo;</a>";
+      $html .= "<a class=\"paginacion__enlace paginacion__enlace--texto\" href=\"?page={$this->paginaSiguiente()}\">Siguiente &raquo;</a>";
     }
 
     return $html;
