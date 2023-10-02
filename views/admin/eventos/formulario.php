@@ -61,116 +61,21 @@
       <?php endforeach; ?>
     </select>
   </div>
-</fieldset>
-
-<fieldset class="formulario__fieldset">
-  <legend class="formulario__legend">Información Profesional</legend>
-
   <div class="formulario__campo">
-    <label for="tags-input" class="formulario__label">Temas de Experiencia</label>
-    <p class="formulario__p">*Separado por comas</p>
-    <input
-      id="tags-input"
-      type="text"
-      class="formulario__input",
-      placeholder="Ej. Node.js, UI/UX, Git, Java"
-    >
+    <label for="categoria" class="formulario__label">Selecciona el Día</label>
 
-    <div id="tags" class="formulario__listado"></div>
-    <input type="hidden" name="tags" value="<?php echo $ponente->tags ?? ''; ?>">
-  </div>
-</fieldset>
-
-<fieldset class="formulario__fieldset">
-  <legend class="formulario__legend">Redes Sociales</legend>
-
-  <div class="formulario__campo">
-    <div class="formulario__contenedor-icono">
-      <div class="formulario__icono">
-        <i class="fa-brands fa-facebook"></i>
+    <div class="formulario__radio">
+      <?php foreach ($dias as $dia) : ?>
+      <div>
+        <label for="<?php echo strtolower($dia->nombre); ?>"><?php echo $dia->nombre; ?></label>
+        <input
+          id="<?php echo strtolower($dia->nombre); ?>"
+          name="dia"
+          type="radio"
+          value="<?php echo $dia->id; ?>"
+        >
       </div>
-    <input
-      name="redes[facebook]"
-      type="text"
-      class="formulario__input--sociales"
-      placeholder="Facebook"
-      value="<?php echo $redes->facebook ?? ''; ?>"
-    >
-    </div>
-  </div>
-
-  <div class="formulario__campo">
-    <div class="formulario__contenedor-icono">
-      <div class="formulario__icono">
-        <i class="fa-brands fa-twitter"></i>
-      </div>
-    <input
-      name="redes[twitter]"
-      type="text"
-      class="formulario__input--sociales"
-      placeholder="Twitter"
-      value="<?php echo $redes->twitter ?? ''; ?>"
-    >
-    </div>
-  </div>
-
-  <div class="formulario__campo">
-    <div class="formulario__contenedor-icono">
-      <div class="formulario__icono">
-        <i class="fa-brands fa-youtube"></i>
-      </div>
-    <input
-      name="redes[youtube]"
-      type="text"
-      class="formulario__input--sociales"
-      placeholder="YouTube"
-      value="<?php echo $redes->youtube ?? ''; ?>"
-    >
-    </div>
-  </div>
-
-  <div class="formulario__campo">
-    <div class="formulario__contenedor-icono">
-      <div class="formulario__icono">
-        <i class="fa-brands fa-instagram"></i>
-      </div>
-    <input
-      name="redes[instagram]"
-      type="text"
-      class="formulario__input--sociales"
-      placeholder="Instagram"
-      value="<?php echo $redes->instagram ?? ''; ?>"
-    >
-    </div>
-  </div>
-
-  <div class="formulario__campo">
-    <div class="formulario__contenedor-icono">
-      <div class="formulario__icono">
-        <i class="fa-brands fa-tiktok"></i>
-      </div>
-    <input
-      name="redes[tiktok]"
-      type="text"
-      class="formulario__input--sociales"
-      placeholder="TikTok"
-      value="<?php echo $redes->tiktok ?? ''; ?>"
-    >
-    </div>
-  </div>
-
-  <div class="formulario__campo">
-    <div class="formulario__contenedor-icono">
-      <div class="formulario__icono">
-        <i class="fa-brands fa-github"></i>
-      </div>
-    <input
-      name="redes[github]"
-      type="text"
-      class="formulario__input--sociales"
-      placeholder="GitHub"
-      value="<?php echo $redes->github ?? ''; ?>"
-    >
+      <?php endforeach; ?>
     </div>
   </div>
 </fieldset>
