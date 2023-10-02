@@ -61,6 +61,7 @@
       <?php endforeach; ?>
     </select>
   </div>
+
   <div class="formulario__campo">
     <label for="categoria" class="formulario__label">Selecciona el Día</label>
 
@@ -77,5 +78,14 @@
       </div>
       <?php endforeach; ?>
     </div>
+  </div>
+
+  <div id="horas" class="formulario__campo">
+    <label class="formulario__label">Seleccionar Hora</label>
+    <ul class="horas">
+      <?php foreach ($horas as $hora) : ?>
+        <li class="horas__hora"><?php echo $hora->hora; ?></li>
+      <?php endforeach; ?>
+    </ul>
   </div>
 </fieldset>
