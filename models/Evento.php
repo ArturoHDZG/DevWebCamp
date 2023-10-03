@@ -29,6 +29,7 @@ class Evento extends ActiveRecord
   {
     $this->id = $args['íd'] ?? null;
     $this->nombre = $args['nombre'] ?? '';
+    $this->descripcion = $args['descripcion'] ?? '';
     $this->disponibles = $args['disponibles'] ?? '';
     $this->categoria_id = $args['categoria_id'] ?? '';
     $this->dia_id = $args['dia_id'] ?? '';

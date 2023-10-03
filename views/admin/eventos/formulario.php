@@ -20,32 +20,7 @@
       name="descripcion"
       class="formulario__input"
       placeholder="Descripción del Evento"
-      value="<?php echo $evento->descripcion ?? ''; ?>"
-    ></textarea>
-  </div>
-
-  <div class="formulario__campo">
-    <label for="ciudad" class="formulario__label">Ciudad</label>
-    <input
-      id="ciudad"
-      name="ciudad"
-      type="text"
-      class="formulario__input"
-      placeholder="Ciudad del Ponente"
-      value="<?php echo $ponente->ciudad ?? ''; ?>"
-    >
-  </div>
-
-  <div class="formulario__campo">
-    <label for="pais" class="formulario__label">País</label>
-    <input
-      id="pais"
-      name="pais"
-      type="text"
-      class="formulario__input"
-      placeholder="País del Ponente"
-      value="<?php echo $ponente->pais ?? ''; ?>"
-    >
+    ><?php echo $evento->descripcion ?? ''; ?></textarea>
   </div>
 
   <div class="formulario__campo">
@@ -55,9 +30,13 @@
       name="categoria_id"
       class="formulario__select"
     >
-      <option value="">-- Seleccionar --</option>
+      <option value="" disabled selected>-- Seleccionar --</option>
       <?php foreach ($categorias as $categoria) : ?>
-        <option value="<?php echo $categoria->id; ?>"><?php echo $categoria->nombre; ?></option>
+        <option
+          <?php echo ($evento->categoria_id === $categoria->id) ? 'selected' : ''; ?>
+          value="<?php echo $categoria->id; ?>">
+            <?php echo $categoria->nombre; ?>
+        </option>
       <?php endforeach; ?>
     </select>
   </div>
@@ -112,6 +91,7 @@
       min="1"
       class="formulario__input"
       placeholder="Ej. 20"
+      value="<?php echo $evento->disponibles ?? ''; ?>"
     >
   </div>
 </fieldset>
