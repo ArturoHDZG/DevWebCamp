@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\APIEventos;
 use MVC\Router;
 use Controllers\AuthController;
 use Controllers\PonentesController;
@@ -55,6 +56,10 @@ $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 
 // Area de Administración - Regalos
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
+
+// API
+$router->get('/api/eventos-horario', [APIEventos::class, 'index']);
+
 
 
 $router->comprobarRutas();
