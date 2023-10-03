@@ -145,12 +145,30 @@ class ActiveRecord
     return array_shift( $resultado ) ;
   }
 
-  // Busqueda Where con Columna
+  // Búsqueda Where con Columna
   public static function where($columna, $valor)
   {
     $query = "SELECT * FROM " . static::$tabla . " WHERE {$columna} = '{$valor}'";
     $resultado = self::consultarSQL($query);
     return array_shift( $resultado ) ;
+  }
+
+  // Búsqueda Where con Multiples Registros
+  public static function whereArray($array = [])
+  {
+    $query = "SELECT * FROM " . static::$tabla . " WHERE ";
+
+    foreach ($array as $key => $value) {
+
+      if ($key == array_key_last($array)) {
+        $query .= " {$key} = '{$value}'";
+      } else {
+        $query .= " {$key} = '{$value}' AND";
+      }
+    }
+
+    $resultado = self::consultarSQL($query);
+    return array_shift( $resultado );
   }
 
   // crea un nuevo registro

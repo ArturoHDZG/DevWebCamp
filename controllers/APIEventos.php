@@ -16,9 +16,15 @@ class APIEventos
 
     if (!$dia_id || !$categoria_id) {
       echo json_encode([]);
+      return;
     }
 
     // Consultar BD
-    $eventos = EventoHorarios::total();
+    $eventos = EventoHorarios::whereArray([
+      'categoria_id' => $categoria_id,
+      'dia_id' => $dia_id
+    ]);
+
+    echo json_encode($eventos);
   }
 }
