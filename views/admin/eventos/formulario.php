@@ -57,6 +57,7 @@
       </div>
       <?php endforeach; ?>
     </div>
+    <input type="hidden" name="dia_id" value="">
   </div>
 
   <div id="horas" class="formulario__campo">
