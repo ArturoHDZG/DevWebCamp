@@ -18,7 +18,20 @@
 
     function terminoBusqueda(e) {
       busqueda[ e.target.name ] = e.target.value;
-      console.log(busqueda);
+      buscarEventos();
+    }
+
+    async function buscarEventos() {
+      const { categoria_id, dia } = busqueda;
+      const url = `/api/eventos-horario?categoria_id=${categoria_id}&dia_id=${dia}`;
+      const resultado = await fetch(url);
+      const eventos = await resultado.json();
+
+      obtenerHorasDisponibles();
+    }
+
+    function obtenerHorasDisponibles() {
+      //
     }
   }
 })();
