@@ -62,9 +62,15 @@
 
   <div id="horas" class="formulario__campo">
     <label class="formulario__label">Seleccionar Hora</label>
+    <p class="formulario__p">*Debes Seleccionar primero una Categoría y un Día</p>
     <ul class="horas">
       <?php foreach ($horas as $hora) : ?>
-        <li data-hora-id="<?php echo $hora->id; ?>" class="horas__hora"><?php echo $hora->hora; ?></li>
+        <li
+          data-hora-id="<?php echo $hora->id; ?>"
+          class="horas__hora horas__hora--deshabilitada"
+        >
+          <?php echo $hora->hora; ?>
+        </li>
       <?php endforeach; ?>
     </ul>
     <input type="hidden" name="hora_id" value="">

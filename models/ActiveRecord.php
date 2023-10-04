@@ -167,8 +167,7 @@ class ActiveRecord
       }
     }
 
-    $resultado = self::consultarSQL($query);
-    return array_shift( $resultado );
+    return self::consultarSQL($query);
   }
 
   // crea un nuevo registro
