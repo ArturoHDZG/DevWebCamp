@@ -6,6 +6,7 @@
   if (ponentesInput) {
     let ponentes = [];
     let ponentesFiltrados = [];
+    const listadoPonentes = document.querySelector('#listado-ponentes');
 
     obtenerPonentes();
 
@@ -31,16 +32,50 @@
     function buscarPonentes(e) {
       const buscar = e.target.value;
 
-      if (buscar.length > 3) {
-        const expRegular = new RegExp(buscar, "i");
+      if (buscar.length >= 3) {
+        const expRegular = new RegExp(buscar.normalize('NFD').replace(/[\u0300-\u036f]/g, ""), "i");
 
         ponentesFiltrados = ponentes.filter(ponente => {
 
-          if (ponente.nombre.toLowerCase().search(expRegular) != -1) {
+          if (ponente.nombre.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase().search(expRegular) != -1) {
             return ponente;
           }
         });
-        console.log(ponentesFiltrados);
+      } else {
+        ponentesFiltrados = [];
+      }
+
+      mostrarPonentes();
+    }
+
+    function mostrarPonentes() {
+
+      while (listadoPonentes.firstChild) {
+        listadoPonentes.removeChild(listadoPonentes.firstChild);
+      }
+
+      if (ponentesFiltrados.length > 0) {
+
+        ponentesFiltrados.forEach(ponente => {
+          const ponenteHTML = document.createElement('LI');
+          ponenteHTML.classList.add('listado-ponentes__ponente');
+          ponenteHTML.textContent = ponente.nombre;
+          ponenteHTML.dataset.ponenteId = ponente.id;
+
+          // Añadir al DOM
+          listadoPonentes.appendChild(ponenteHTML);
+        });
+      } else {
+        const noResultados = document.createElement('P');
+
+        noResultados.classList.add('listado-ponentes__no-resultados');
+
+        if(ponentesInput.value.length >=3 ) {
+          noResultados.textContent = 'No hay resultados para tu búsqueda'
+        }
+
+        // Añadir al DOM
+        listadoPonentes.appendChild(noResultados);
       }
     }
   }
