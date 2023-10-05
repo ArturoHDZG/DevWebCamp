@@ -54,6 +54,11 @@ class PonentesController
     $ponente = new Ponente;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+      if (!isAdmin()) {
+        header('Location: /login');
+      }
+
       if (!empty($_FILES['imagen']['tmp_name'])) {
         $carpeta_imagenes = '../public/img/speakers';
 
@@ -131,6 +136,10 @@ class PonentesController
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+      if (!isAdmin()) {
+        header('Location: /login');
+      }
+
       if (!empty($_FILES['imagen']['tmp_name'])) {
         $carpeta_imagenes = '../public/img/speakers';
 
@@ -183,11 +192,12 @@ class PonentesController
 
   public static function eliminar()
   {
-    if (!isAdmin()) {
-      header('Location: /login');
-    }
-
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+      if (!isAdmin()) {
+        header('Location: /login');
+      }
+
       $id = $_POST['id'];
       $ponente = Ponente::find($id);
 

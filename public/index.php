@@ -53,6 +53,7 @@ $router->get('/admin/eventos/crear', [EventosController::class, 'crear']);
 $router->get('/admin/eventos/editar', [EventosController::class, 'editar']);
 $router->post('/admin/eventos/crear', [EventosController::class, 'crear']);
 $router->post('/admin/eventos/editar', [EventosController::class, 'editar']);
+$router->post('/admin/eventos/eliminar', [EventosController::class, 'eliminar']);
 
 // Area de Administración - Usuarios Registrados
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
