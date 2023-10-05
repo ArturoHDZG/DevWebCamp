@@ -67,18 +67,6 @@
 }
 
 /* Utilidades */
-@mixin headings {
-  font-family: v.$fuente_principal;
-  font-weight: v.$black;
-  margin: 2rem 0;
-}
-
-@mixin nombre-pagina {
-  @include headings;
-  margin: 6rem 0 3rem 0;
-  text-align: center;
-}
-
 @mixin logo {
   color: v.$blanco;
   margin-bottom: 2rem;
@@ -175,6 +163,26 @@
 }
 
 /* Estilos Tipografía */
+@mixin headings {
+  font-family: v.$fuente_principal;
+  font-weight: v.$black;
+  margin: 2rem 0;
+}
+
+@mixin nombre-pagina {
+  @include headings;
+  margin: 6rem 0 3rem 0;
+  text-align: center;
+}
+
+@mixin descripcion-pagina {
+  color: v.$gris-oscuro;
+  font-size: 1.8rem;
+  font-weight: v.$delgada;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
 @mixin texto-fluido($min, $max) {
   font-size: clamp($min, -0.8rem + 10vw, $max);
 }
