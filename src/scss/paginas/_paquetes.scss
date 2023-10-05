@@ -1,0 +1,52 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.paquetes {
+
+  &__grid {
+    @include m.contenedor;
+    @include m.grid(1, 3rem);
+
+    @include m.tablet {
+      @include m.grid(3, 3rem);
+      justify-content: space-between;
+    }
+  }
+}
+
+.paquete {
+  @include m.card;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:nth-child(1) {
+    order: 2;
+
+    @include m.tablet { order: unset; }
+  }
+
+  &:nth-child(2) {
+    order: 0;
+
+    @include m.tablet { order: unset; }
+  }
+
+  &__lista {
+    @include m.reset-lista;
+    line-height: 2;
+  }
+
+  &__precio {
+    color: v.$azul;
+    font-size: 6rem;
+    font-weight: v.$black;
+    margin: 3rem 0 0 0;
+    text-align: center;
+
+    span {
+      font-size: 3rem;
+      vertical-align: super;
+    }
+  }
+}
