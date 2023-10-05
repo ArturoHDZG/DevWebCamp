@@ -9,6 +9,7 @@ use Controllers\AuthController;
 use Controllers\PonentesController;
 use Controllers\DashboardController;
 use Controllers\EventosController;
+use Controllers\PaginasController;
 use Controllers\RegalosController;
 use Controllers\RegistradosController;
 
@@ -35,6 +36,13 @@ $router->post('/recuperar', [AuthController::class, 'recuperar']);
 // Confirmación de Cuenta
 $router->get('/mensaje', [AuthController::class, 'mensaje']);
 $router->get('/confirmar-cuenta', [AuthController::class, 'confirmar']);
+
+// Area Pública
+$router->get('/', [PaginasController::class, 'index']);
+$router->get('/devwebcamp', [PaginasController::class, 'evento']);
+$router->get('/paquetes', [PaginasController::class, 'paquetes']);
+$router->get('/workshops-conferencias', [PaginasController::class, 'conferencias']);
+
 
 // Area de Administración
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
