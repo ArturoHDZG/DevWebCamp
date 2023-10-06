@@ -27,3 +27,43 @@
     }
   }
 }
+
+.evento {
+
+  &__hora { font-weight: v.$bold; }
+
+  &__informacion {
+    background-color: v.$azul;
+    border-radius: 1rem;
+    color: v.$blanco;
+    padding: 2rem;
+    transition: 300ms background-color ease;
+
+    &:hover { background-color: darken(v.$azul, 10%); }
+  }
+
+  &__introduccion {
+    font-size: 1.6rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    @include m.tablet { -webkit-line-clamp: 2; }
+  }
+
+  &__autor-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  &__imagen-autor {
+    background-color: v.$blanco;
+    border-radius: 50%;
+    width: 5rem;
+  }
+
+  &__autor-nombre { font-weight: v.$bold; }
+}
