@@ -42,10 +42,19 @@ function javascript() {
   return src(paths.js)
     .pipe(webpack({
       mode: 'production',
-      entry: './src/js/app.js'
+      entry: './src/js/app.js',
+      watch: true,
+      module: {
+        rules: [
+          {
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader']
+          }
+        ]
+      }
     }))
     .pipe(sourcemaps.init())
-    .pipe(concat('bundle.js'))
+    // .pipe(concat('bundle.js'))
     .pipe(terser())
     .pipe(sourcemaps.write('.'))
     .pipe(rename({ suffix: '.min' }))

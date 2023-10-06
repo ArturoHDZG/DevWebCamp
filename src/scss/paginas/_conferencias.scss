@@ -26,6 +26,9 @@
       color: v.$secundario;
     }
   }
+
+  .swiper-button-prev,
+  .swiper-button-next { color: rgba(v.$blanco, .5); }
 }
 
 .evento {
@@ -36,16 +39,26 @@
     background-color: v.$azul;
     border-radius: 1rem;
     color: v.$blanco;
+    min-height: 22rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 2rem;
     transition: 300ms background-color ease;
 
     &:hover { background-color: darken(v.$azul, 10%); }
   }
 
+  &__nombre {
+    font-size: 2.4rem;
+    margin: 0;
+  }
+
   &__introduccion {
     font-size: 1.6rem;
+    margin: 2rem 0 2rem 0;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 
