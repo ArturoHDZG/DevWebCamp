@@ -44,9 +44,9 @@ class PaginasController
       $evento->ponente = Ponente::find($evento->ponente_id);
 
       if ($evento->dia_id === '1' && $evento->categoria_id === '1') {
-        $eventosFormateados['confenecias_s'][] = $evento;
+        $eventosFormateados['conferencias_s'][] = $evento;
       } elseif ($evento->dia_id === '2' && $evento->categoria_id === '1') {
-        $eventosFormateados['confenecias_d'][] = $evento;
+        $eventosFormateados['conferencias_d'][] = $evento;
       } elseif ($evento->dia_id === '1' && $evento->categoria_id === '2') {
         $eventosFormateados['workshops_s'][] = $evento;
       } elseif ($evento->dia_id === '2' && $evento->categoria_id === '2') {
@@ -55,7 +55,8 @@ class PaginasController
     }
 
     $router->render('paginas/conferencias', [
-      'titulo' => 'Conferencias & Workshops'
+      'titulo' => 'Conferencias & Workshops',
+      'eventos' => $eventosFormateados
     ]);
   }
 }
