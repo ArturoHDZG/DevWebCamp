@@ -153,6 +153,13 @@ class ActiveRecord
     return array_shift( $resultado ) ;
   }
 
+  // Busqueda de registros por un orden
+  public static function ordenar($columna, $orden)
+  {
+    $query = "SELECT * FROM " . static::$tabla . " ORDER BY {$columna} {$orden}";
+    return self::consultarSQL($query);
+  }
+
   // Búsqueda Where con Multiples Registros
   public static function whereArray($array = [])
   {
