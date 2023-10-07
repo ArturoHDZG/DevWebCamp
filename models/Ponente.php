@@ -26,6 +26,8 @@ class Ponente extends ActiveRecord
   public $redes;
 
   public $imagen_actual;
+  public $tagsArray;
+  public $sociales;
 
   public function __construct($args = [])
   {
