@@ -38,12 +38,26 @@ class PaginasController
     $totalConferencias = Evento::total('categoria_id', 1);
     $totalWorkshops = Evento::total('categoria_id', 2);
 
+    // Obtener todos los ponentes
+    $todosPonentes = Ponente::all();
+
+    // Formatear Tags
+    foreach ($todosPonentes as $ponente) {
+      $ponente->tagsArray = explode(',', $ponente->tags);
+    }
+
+    // Decodificar Redes Sociales
+    foreach ($todosPonentes as $ponente) {
+      $ponente->sociales = json_decode($ponente->redes);
+    }
+
     $router->render('paginas/index', [
       'titulo' => 'Inicio',
       'eventos' => $eventosFormateados,
       'ponentes' => $totalPonentes,
       'conferencias' => $totalConferencias,
-      'workshops' => $totalWorkshops
+      'workshops' => $totalWorkshops,
+      'todosPonentes' => $todosPonentes
     ]);
   }
 
