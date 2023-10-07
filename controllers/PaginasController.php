@@ -13,8 +13,37 @@ class PaginasController
 {
   public static function index(Router $router)
   {
+    $eventos = Evento::ORDENAR('hora_id', 'ASC');
+    $eventosFormateados = [];
+
+    foreach ($eventos as $evento) {
+      $evento->categoria = Categoria::find($evento->categoria_id);
+      $evento->dia = Dia::find($evento->dia_id);
+      $evento->hora = Hora::find($evento->hora_id);
+      $evento->ponente = Ponente::find($evento->ponente_id);
+
+      if ($evento->dia_id === '1' && $evento->categoria_id === '1') {
+        $eventosFormateados['conferencias_s'][] = $evento;
+      } elseif ($evento->dia_id === '2' && $evento->categoria_id === '1') {
+        $eventosFormateados['conferencias_d'][] = $evento;
+      } elseif ($evento->dia_id === '1' && $evento->categoria_id === '2') {
+        $eventosFormateados['workshops_s'][] = $evento;
+      } elseif ($evento->dia_id === '2' && $evento->categoria_id === '2') {
+        $eventosFormateados['workshops_d'][] = $evento;
+      }
+    }
+
+    // Obtener el total de cada bloque
+    $totalPonentes = Ponente::total();
+    $totalConferencias = Evento::total('categoria_id', 1);
+    $totalWorkshops = Evento::total('categoria_id', 2);
+
     $router->render('paginas/index', [
-      'titulo' => 'Inicio'
+      'titulo' => 'Inicio',
+      'eventos' => $eventosFormateados,
+      'ponentes' => $totalPonentes,
+      'conferencias' => $totalConferencias,
+      'workshops' => $totalWorkshops
     ]);
   }
 
