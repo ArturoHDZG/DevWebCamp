@@ -19,6 +19,27 @@
 
 .speaker {
   @include m.card;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 35rem;
+
+  @for $i from 1 through 4 {
+    &:nth-child(4n + #{$i}) {
+      background-image: image-set(
+        url('../img/bg_#{$i}.avif') type("image/avif") 1x,
+        url('../img/bg_#{$i}.webp') type("image/webp") 1x,
+        url('../img/bg_#{$i}.png') type("image/png") 1x
+      );
+    }
+  }
+
+  &__imagen {
+    min-width: 35rem;
+
+    @include m.tablet {
+      min-width: unset;
+    }
+  }
 
   &__ubicacion {
     color: v.$gris;
