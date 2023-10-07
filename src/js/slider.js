@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const options = {
       slidesPerView: 1,
       spaceBetween: 15,
+      modules: [Navigation],
       navigation: {
         nextEL: '.swiper-button-next',
         prevEL: '.swiper-button-prev'
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    Swiper.use([ Navigation ])
-    new Swiper('.slider', options)
+    Swiper.use([ Navigation ]);
+    new Swiper('.slider', options);
   }
 });
