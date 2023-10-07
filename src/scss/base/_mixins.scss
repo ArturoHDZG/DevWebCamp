@@ -71,6 +71,7 @@
   color: v.$blanco;
   margin-bottom: 2rem;
   text-align: center;
+  white-space: nowrap;
 
   @include desktop {
     margin: 0;
