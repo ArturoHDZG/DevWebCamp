@@ -1,0 +1,88 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.boletos {
+
+  &__grid {
+    @include m.contenedor-md;
+    @include m.grid(1, 5rem);
+  }
+}
+
+.boleto {
+  border-radius: 2rem;
+  color: v.$blanco;
+  margin: 0 auto;
+  padding: 6rem;
+  position: relative;
+  width: min(100% - 5rem, 65rem);
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    background-color: v.$blanco;
+    top: calc(50% - 2.5rem);
+    height: 5rem;
+    width: 5rem;
+  }
+
+  &::before {
+    clip-path: circle(50% at 25% 50%);
+    left: 0;
+  }
+
+  &::after {
+    clip-path: circle(50% at 75% 50%);
+    right: 0;
+  }
+
+  &--presencial {
+    background-color:hsla(209,100%,47%,1);
+    background-image:
+    radial-gradient(at 66% 33%, hsla(178,100%,39%,1) 0rem, transparent 50%),
+    radial-gradient(at 71% 75%, hsla(209,100%,47%,1) 0rem, transparent 50%),
+    radial-gradient(at 32% 67%, hsla(178,100%,39%,1) 0rem, transparent 50%),
+    radial-gradient(at 50% 49%, hsla(209,100%,47%,1) 0rem, transparent 50%),
+    radial-gradient(at 14% 86%, hsla(178,100%,39%,1) 0rem, transparent 50%),
+    radial-gradient(at 19% 16%, hsla(209,100%,47%,1) 0rem, transparent 50%),
+    radial-gradient(at 86% 12%, hsla(178,100%,39%,1) 0rem, transparent 50%);
+  }
+
+  &--virtual { background-color: v.$secundario; }
+
+  &--gratis { background-color: v.$azul; }
+
+  &__logo {
+    @include m.logo;
+    @include m.texto-fluido(2rem, 4rem);
+  }
+
+  &__plan {
+    font-size: 2rem;
+    margin: 3rem 0 2rem 0;
+    text-transform: uppercase;
+  }
+
+  &__precio {
+    font-size: 4rem;
+    font-weight: v.$black;
+
+    span {
+      font-size: 2rem;
+      vertical-align: super;
+    }
+  }
+
+  &__enlace-contenedor {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+  }
+
+  &__enlace {
+    @include m.boton(v.$azul, v.$blanco);
+    border-radius: .5rem;
+    width: auto;
+  }
+}
