@@ -8,7 +8,13 @@
       <ul class="paquete__lista">
         <li class="paquete__elemento">Acceso Virtual a DevWebCamp</li>
       </ul>
-      <p class="paquete__precio">&dollar;0.<span>00</span></p>
+
+      <div>
+        <p class="paquete__precio">&dollar;0.<span>00</span></p>
+        <form method="POST" action="/finalizar-registro/gratis">
+          <input type="submit" class="paquetes__submit" value="Inscribirse">
+        </form>
+      </div>
     </div>
 
     <div class="paquete">
@@ -21,7 +27,12 @@
         <li class="paquete__elemento">Camisa del Evento</li>
         <li class="paquete__elemento">Comidas y Bebidas</li>
       </ul>
-      <p class="paquete__precio">&dollar;199.<span>99</span></p>
+      <div>
+        <p class="paquete__precio">&dollar;199.<span>99</span></p>
+        <form method="POST" action="/finalizar-registro/presencial">
+          <input type="submit" class="paquetes__submit" value="Comprar Pase">
+        </form>
+      </div>
     </div>
 
     <div class="paquete">
@@ -32,7 +43,12 @@
         <li class="paquete__elemento">Enlace a Talleres y Conferencias</li>
         <li class="paquete__elemento">Acceso a las Grabaciones</li>
       </ul>
-      <p class="paquete__precio">&dollar;49.<span>99</span></p>
+      <div>
+        <p class="paquete__precio">&dollar;49.<span>99</span></p>
+        <form method="POST" action="/finalizar-registro/virtual">
+          <input type="submit" class="paquetes__submit" value="Comprar Pase">
+        </form>
+      </div>
     </div>
   </div>
 </main>

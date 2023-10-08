@@ -49,6 +49,7 @@ $router->get('/404', [PaginasController::class, 'error']);
 
 // Registro de Usuarios
 $router->get('/finalizar-registro', [RegistroController::class, 'crear']);
+$router->post('/finalizar-registro/gratis', [RegistroController::class, 'gratis']);
 
 // Area de Administración
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);

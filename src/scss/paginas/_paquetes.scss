@@ -12,6 +12,11 @@
       justify-content: space-between;
     }
   }
+
+  &__submit {
+    @include m.boton(v.$azul, v.$blanco);
+    margin-top: 2rem;
+  }
 }
 
 .paquete {
