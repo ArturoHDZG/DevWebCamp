@@ -19,6 +19,9 @@ class Registro extends ActiveRecord
   public $token;
   public $usuario_id;
 
+  public $usuario;
+  public $paquete;
+
   public function __construct($args = [])
   {
     $this->id = $args['id'] ?? null;

@@ -51,6 +51,9 @@ $router->get('/404', [PaginasController::class, 'error']);
 $router->get('/finalizar-registro', [RegistroController::class, 'crear']);
 $router->post('/finalizar-registro/gratis', [RegistroController::class, 'gratis']);
 
+// Boleto Virtual
+$router->get('/boleto', [RegistroController::class, 'boleto']);
+
 // Area de Administración
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
 
