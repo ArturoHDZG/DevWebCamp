@@ -17,10 +17,9 @@ This is the code repository for the "DevWebCamp" project created by ArturoHDZG.
 - **MySQL**
   - *Apache*
 
-## Recent Updates (2023/10/06)
+## Recent Updates (2023/10/07)
 
-- Added **webpack**.
-- *"Eventos"* section complete.
+- Public Pages Completed.
 
 ## Installation Guide
 

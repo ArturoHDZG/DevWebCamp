@@ -1,0 +1,33 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.pagina-404 {
+
+  &__contenedor {
+    @include m.contenedor-md;
+  }
+
+  &__texto {
+    font-size: 2rem;
+    margin: 3rem 0;
+  }
+
+  &__enlace {
+    border-radius: .5rem;
+    display: inline-block;
+    color: v.$azul;
+    font-size: 2.5rem;
+    padding: 1rem;
+    width: auto;
+    transition: background-color 300ms ease;
+
+    &:hover {
+      background-color: v.$azul;
+      color: v.$blanco;
+    }
+
+    &--contenedor {
+      text-align: center;
+    }
+  }
+}
