@@ -2,7 +2,7 @@
 
 <section class="resumen">
   <div class="resumen__grid">
-    <div class="resumen__bloque">
+    <div data-aos="fade-up" class="resumen__bloque">
       <p class="resumen__texto resumen__texto--numero">
         <?php echo $ponentes; ?>
       </p>
