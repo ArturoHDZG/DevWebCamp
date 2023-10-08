@@ -17,26 +17,6 @@
   position: relative;
   width: min(100% - 5rem, 65rem);
 
-  &::before,
-  &::after {
-    position: absolute;
-    content: '';
-    background-color: v.$blanco;
-    top: calc(50% - 2.5rem);
-    height: 5rem;
-    width: 5rem;
-  }
-
-  &::before {
-    clip-path: circle(50% at 25% 50%);
-    left: 0;
-  }
-
-  &::after {
-    clip-path: circle(50% at 75% 50%);
-    right: 0;
-  }
-
   &--presencial {
     background-color:hsla(209,100%,47%,1);
     background-image:
@@ -84,5 +64,87 @@
     @include m.boton(v.$azul, v.$blanco);
     border-radius: .5rem;
     width: auto;
+  }
+
+  $modificador: &;
+
+  &--acceso {
+    padding: 10rem 3rem;
+    height: 50rem;
+    width: 30rem;
+
+    @include m.tablet {
+      padding: 6rem;
+      height: 30rem;
+      width: 60rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #{$modificador}__logo {
+      font-size: 2.8rem;
+      margin: 0;
+      text-align: left;
+    }
+
+    #{$modificador}__nombre {
+      font-size: 2.4rem;
+      font-weight: v.$black;
+      text-transform: uppercase;
+    }
+
+    #{$modificador}__codigo {
+      font-size: 3.5rem;
+      font-weight: v.$bold;
+      margin: 0;
+      text-align: center;
+      width: 100%;
+      position: absolute;
+      bottom: 5rem;
+      left: 0;
+
+      @include m.tablet {
+        transform: rotate(90deg);
+        transform-origin: 0 0;
+        top: 0;
+        left: calc(100% - 5rem);
+        width: 30rem;
+      }
+    }
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    background-color: v.$blanco;
+    top: calc(50% - 2.5rem);
+    height: 5rem;
+    width: 5rem;
+  }
+
+  &::before {
+    clip-path: circle(50% at 50% 25%);
+    top: 0;
+    left: calc(50% - 2.5rem);
+
+    @include m.tablet {
+      clip-path: circle(50% at 25% 50%);
+      top: calc(50% - 2.5rem);
+      left: 0;
+    }
+  }
+
+  &::after {
+    clip-path: circle(50% at 50% 75%);
+    top: calc(100% - 5rem);
+    left: calc(50% - 2.5rem);
+
+    @include m.tablet {
+      clip-path: circle(50% at 75% 50%);
+      top: calc(50% - 2.5rem);
+      left: calc(100% - 5rem);
+    }
   }
 }

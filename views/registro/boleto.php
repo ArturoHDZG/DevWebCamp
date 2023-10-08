@@ -6,10 +6,10 @@
 
   <div class="boleto-virtual">
 
-    <div class="boleto boleto--<?php echo strtolower($registro->paquete->nombre); ?>">
+    <div class="boleto boleto--<?php echo strtolower($registro->paquete->nombre); ?>  boleto--acceso">
 
       <div class="boleto__contenido">
-        <h4 class="boleto__logo">&#60; DevWebCamp /></h4>
+        <h4 class="boleto__logo">&#60; DevWebCamp /&#62;</h4>
         <p class="boleto__plan">
           <?php echo $registro->paquete->nombre; ?>
         </p>
@@ -19,7 +19,7 @@
       </div>
 
       <p class="boleto__codigo">
-        <?php echo 'Boleto no. ' . $registro->token; ?>
+        <?php echo 'no. #' . $registro->token; ?>
       </p>
     </div>
   </div>
