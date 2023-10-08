@@ -12,6 +12,7 @@ use Controllers\EventosController;
 use Controllers\PaginasController;
 use Controllers\RegalosController;
 use Controllers\RegistradosController;
+use Controllers\RegistroController;
 
 $router = new Router();
 
@@ -45,6 +46,9 @@ $router->get('/workshops-conferencias', [PaginasController::class, 'conferencias
 
 // Página 404
 $router->get('/404', [PaginasController::class, 'error']);
+
+// Registro de Usuarios
+$router->get('/finalizar-registro', [RegistroController::class, 'crear']);
 
 // Area de Administración
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
