@@ -2,28 +2,28 @@
 
 <section class="resumen">
   <div class="resumen__grid">
-    <div data-aos="fade-up" class="resumen__bloque">
+    <div <?php echo aosAnimacion(); ?> class="resumen__bloque">
       <p class="resumen__texto resumen__texto--numero">
         <?php echo $ponentes; ?>
       </p>
       <p class="resumen__texto">Speakers</p>
     </div>
 
-    <div class="resumen__bloque">
+    <div <?php echo aosAnimacion(); ?> class="resumen__bloque">
       <p class="resumen__texto resumen__texto--numero">
         <?php echo $conferencias; ?>
       </p>
       <p class="resumen__texto">Conferencias</p>
     </div>
 
-    <div class="resumen__bloque">
+    <div <?php echo aosAnimacion(); ?> class="resumen__bloque">
       <p class="resumen__texto resumen__texto--numero">
         <?php echo $conferencias; ?>
       </p>
       <p class="resumen__texto">Workshops</p>
     </div>
 
-    <div class="resumen__bloque">
+    <div <?php echo aosAnimacion(); ?> class="resumen__bloque">
       <p class="resumen__texto resumen__texto--numero">
         500
       </p>
@@ -38,7 +38,7 @@
 
   <div class="speakers__grid">
     <?php foreach ($todosPonentes as $ponente) : ?>
-      <div class="speaker">
+      <div <?php echo aosAnimacion(); ?> class="speaker">
         <picture>
           <source
             srcset="/img/speakers/<?php echo $ponente->imagen; ?>.webp"
@@ -144,20 +144,22 @@
 <section class="boletos">
   <h2 class="boletos__heading">Boletos y Precios</h2>
   <p class="boletos__descripcion">Precios para DevWebCamp</p>
+
   <div class="boletos__grid">
-    <div class="boleto boleto--presencial">
+
+    <div <?php echo aosAnimacion(); ?> class="boleto boleto--presencial">
       <h4 class="boleto__logo">&#60;DevWebCamp /></h4>
       <p class="boleto__plan">Presencial</p>
       <p class="boleto__precio">&dollar;199.<span>99</span></p>
     </div>
 
-    <div class="boleto boleto--virtual">
+    <div <?php echo aosAnimacion(); ?> class="boleto boleto--virtual">
       <h4 class="boleto__logo">&#60;DevWebCamp /></h4>
       <p class="boleto__plan">Virtual</p>
       <p class="boleto__precio">&dollar;49.<span>99</span></p>
     </div>
 
-    <div class="boleto boleto--gratis">
+    <div <?php echo aosAnimacion(); ?> class="boleto boleto--gratis">
       <h4 class="boleto__logo">&#60;DevWebCamp /></h4>
       <p class="boleto__plan">Gratis</p>
       <p class="boleto__precio">&dollar;0.<span>00</span></p>
