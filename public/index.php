@@ -49,7 +49,9 @@ $router->get('/404', [PaginasController::class, 'error']);
 
 // Registro de Usuarios
 $router->get('/finalizar-registro', [RegistroController::class, 'crear']);
+$router->get('/finalizar-registro/conferencias', [RegistroController::class, 'conferencias']);
 $router->post('/finalizar-registro/gratis', [RegistroController::class, 'gratis']);
+$router->post('/finalizar-registro/pagar', [RegistroController::class, 'pagar']);
 
 // Boleto Virtual
 $router->get('/boleto', [RegistroController::class, 'boleto']);
