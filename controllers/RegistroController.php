@@ -184,6 +184,8 @@ class RegistroController
       }
 
       // Validar disponibilidad de los Eventos Seleccionados
+      $eventosArray = [];
+
       foreach ($eventos as $evento_id) {
         $evento = Evento::find($evento_id);
 
@@ -192,8 +194,14 @@ class RegistroController
           return;
         }
 
+        $eventosArray[] = $evento;
+      }
+
+      foreach ($eventosArray as $evento) {
         $evento->disponibles -= 1;
-        debug($evento);
+        $evento->guardar();
+
+        // Almacenar el registro
       }
     }
 
