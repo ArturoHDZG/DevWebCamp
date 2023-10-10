@@ -13,6 +13,8 @@ import Swal from 'sweetalert2';
 
     eventosBoton.forEach(boton => boton.addEventListener('click', seleccionarEvento));
 
+    mostrarEventos();
+
     function seleccionarEvento({ target }) {
 
       if (eventos.length < 5) {
@@ -60,6 +62,11 @@ import Swal from 'sweetalert2';
           eventoDOM.appendChild(botonEliminar);
           resumen.appendChild(eventoDOM);
         });
+      } else {
+        const noRegistro = document.createElement('P');
+        noRegistro.classList.add('registro__texto');
+        noRegistro.textContent = 'Todavía no hay eventos, puedes añadir un máximo de 5 eventos de la lista de Conferencias y Workshops';
+        resumen.appendChild(noRegistro);
       }
     }
 
@@ -77,7 +84,7 @@ import Swal from 'sweetalert2';
       }
     }
 
-    function submitFormulario(e) {
+    async function submitFormulario(e) {
       e.preventDefault();
 
       // Registrar el Regalo
@@ -95,7 +102,17 @@ import Swal from 'sweetalert2';
         return;
       }
 
-      console.log('registrando...');
+      const datos = new FormData();
+      datos.append('eventos', eventosId);
+      datos.append('regalo_id', regaloId);
+      const url = '/finalizar-registro/conferencias';
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        body: datos
+      })
+
+      const resultado = await respuesta.json();
+      console.log(resultado);
     }
   }
 })();
