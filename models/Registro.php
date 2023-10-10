@@ -10,7 +10,8 @@ class Registro extends ActiveRecord
     'paquete_id',
     'pago_id',
     'token',
-    'usuario_id'
+    'usuario_id',
+    'regalo_id'
   ];
 
   public $id;
@@ -18,6 +19,7 @@ class Registro extends ActiveRecord
   public $pago_id;
   public $token;
   public $usuario_id;
+  public $regalo_id;
 
   public $usuario;
   public $paquete;
@@ -29,5 +31,6 @@ class Registro extends ActiveRecord
     $this->pago_id = $args['pago_id'] ?? '';
     $this->token = $args['token'] ?? '';
     $this->usuario_id = $args['usuario_id'] ?? '';
+    $this->regalo_id = $args['regalo_id'] ?? '';
   }
 }

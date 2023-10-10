@@ -89,6 +89,6 @@
     width: auto;
     align-self: flex-start;
 
-    &--registrar { width: 100%; }
+    &--registrar, &--finalizar { width: 100%; }
   }
 }

@@ -11,6 +11,7 @@ use Model\Ponente;
 use Model\Usuario;
 use Model\Registro;
 use Model\Categoria;
+use Model\Regalo;
 
 class RegistroController
 {
@@ -158,9 +159,12 @@ class RegistroController
       }
     }
 
+    $regalos = Regalo::all('ASC');
+
     $router->render('registro/conferencias', [
       'titulo' => 'Elige tus Conferencias y Workshops',
-      'eventos' => $eventosFormateados
+      'eventos' => $eventosFormateados,
+      'regalos' => $regalos
     ]);
   }
 }
