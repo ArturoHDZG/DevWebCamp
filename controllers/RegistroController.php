@@ -11,6 +11,7 @@ use Model\Ponente;
 use Model\Usuario;
 use Model\Registro;
 use Model\Categoria;
+use Model\EventosRegistros;
 use Model\Regalo;
 
 class RegistroController
@@ -23,6 +24,10 @@ class RegistroController
 
     // Verificar si el usuario ya esta registrado
     $registro = Registro::where('usuario_id', $_SESSION['id']);
+
+    if ($registro->paquete_id === '1') {
+      header('Location: /finalizar-registro/conferencias');
+    }
 
     if (isset($registro) && $registro->paquete_id === '3') {
       header('Location: /boleto?id=' . urlencode($registro->token));
@@ -52,12 +57,12 @@ class RegistroController
       $token = substr(md5(uniqid(rand(), true)), 0, 8);
 
       // Crear Registro
-      $datos = array(
+      $datos = [
         'paquete_id' => 3,
         'pago_id' => '',
         'token' => $token,
         'usuario_id' => $_SESSION['id']
-      );
+      ];
 
       $registro = new Registro($datos);
       $resultado = $registro->guardar();
@@ -139,6 +144,10 @@ class RegistroController
       header('Location: /');
     }
 
+    if (isset($registro->regalo_id)) {
+      header('Location: /boleto?id=' . urlencode($registro->token));
+    }
+
     $eventos = Evento::ordenar('hora_id', 'ASC');
     $eventosFormateados = [];
 
@@ -202,7 +211,30 @@ class RegistroController
         $evento->guardar();
 
         // Almacenar el registro
+        $datos = [
+          'evento_id' => (int) $evento->id,
+          'registro_id' => (int) $registro->id
+        ];
+
+        $registroUsuario = new EventosRegistros($datos);
+        $registroUsuario->guardar();
       }
+
+      // Almacenar el Regalo
+      $registro->sincronizar(['regalo_id' => $_POST['regalo_id']]);
+      $resultado = $registro->guardar();
+
+      if ($resultado) {
+        echo json_encode([
+          'resultado' => $resultado,
+          'token' => $registro->token
+        ]);
+      } else {
+        echo json_encode(['resultado' => false]);
+        return;
+      }
+
+      return;
     }
 
     $router->render('registro/conferencias', [
