@@ -52,7 +52,7 @@
       </select>
     </div>
 
-    <form action="" class="formulario">
+    <form id="registro" class="formulario">
       <div class="formulario__campo">
         <input type="submit" class="formulario__submit formulario__submit--finalizar" value="Finalizar Registro">
       </div>
