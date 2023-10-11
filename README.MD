@@ -1,6 +1,6 @@
 # DevWebCamp
 
-![DevWebCamp](https://github.com/ArturoHDZG/DevWebCamp/blob/main/src/img/Project-Github-Big.jpg)
+![DevWebCamp](https://github.com/ArturoHDZG/DevWebCamp/blob/main/public/devwebcamp-preview.jpg)
 
 ## Visit site [here](https://devwebcamp.ticocasas.domcloud.io)
 
