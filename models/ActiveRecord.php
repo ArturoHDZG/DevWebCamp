@@ -165,6 +165,13 @@ class ActiveRecord
     return self::consultarSQL($query);
   }
 
+  // Busqueda limitada de registros por un orden
+  public static function ordenarLimite($columna, $orden, $limite)
+  {
+    $query = "SELECT * FROM " . static::$tabla . " ORDER BY {$columna} {$orden} LIMIT {$limite}";
+    return self::consultarSQL($query);
+  }
+
   // Búsqueda Where con Multiples Registros
   public static function whereArray($array = [])
   {

@@ -18,16 +18,22 @@
 .bloque {
   border-radius: 1rem;
   color: v.$blanco;
-  padding: 2rem;
+  padding: 3rem;
 
-  &:nth-child(1) { @include m.bg-gradient(#F97316); }
+  &:nth-child(1) { @include m.bg-gradient(#9c6b47); }
 
-  &:nth-child(2) { @include m.bg-gradient(#A855F7); }
+  &:nth-child(2) { @include m.bg-gradient(#17769e); }
+
+  &:nth-child(3) { @include m.bg-gradient(#75203a); }
+
+  &:nth-child(4) { @include m.bg-gradient(#4f7914); }
 
   .bloque &__heading {
     font-size: 3.6rem;
     margin: 1rem 0 2rem 0;
   }
+
+  &__contenido { margin: 1rem 0; }
 
   &__texto {
     margin: 1rem 0;
@@ -37,6 +43,11 @@
       font-weight: v.$black;
       margin-top: 5rem;
       text-align: center;
+    }
+
+    &--disponibles {
+      font-size: 1.4rem;
+      font-style: italic;
     }
   }
 }
