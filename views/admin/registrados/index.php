@@ -25,11 +25,11 @@
             </td>
 
             <td class="table__td">
-              <?php echo $registro->paquete->nombre; ?>
+              <?php echo $registro->paquete->nombre ?? ''; ?>
             </td>
 
             <td class="table__td">
-              <?php echo 'No.', ' ', $registro->token; ?>
+              <?php echo 'No.', ' ', $registro->token ?? ''; ?>
             </td>
 
           </tr>

@@ -146,9 +146,8 @@ class ActiveRecord
   // Obtener Registros con cierta cantidad
   public static function get($limite)
   {
-    $query = "SELECT * FROM " . static::$tabla . " LIMIT {$limite} ORDER BY id DESC" ;
-    $resultado = self::consultarSQL($query);
-    return array_shift( $resultado ) ;
+    $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT {$limite}" ;
+    return self::consultarSQL($query);
   }
 
   // Búsqueda Where con Columna
