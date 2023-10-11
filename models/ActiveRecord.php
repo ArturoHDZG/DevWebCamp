@@ -221,7 +221,7 @@ class ActiveRecord
     // Iterar para ir agregando cada campo de la BD
     $valores = [];
     foreach($atributos as $key => $value) {
-      $valores[] = "{$key}='{$value}'";
+      $valores[] = "{$key}={$value}";
     }
 
     // Consulta SQL
@@ -241,6 +241,25 @@ class ActiveRecord
     $query = "DELETE FROM "  . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
     $resultado = self::$db->query($query);
     return $resultado;
+  }
+
+  // Total de Registros con un Array Where
+  public static function totalArray($array = [])
+  {
+    $query = "SELECT COUNT(*) FROM " . static::$tabla . " WHERE ";
+
+    foreach ($array as $key => $value) {
+
+      if ($key == array_key_last($array)) {
+        $query .= " {$key} = '{$value}'";
+      } else {
+        $query .= " {$key} = '{$value}' AND";
+      }
+    }
+
+    $resultado = self::$db->query($query);
+    $total = $resultado->fetch_array();
+    return array_shift($total);
   }
 
   // Métodos para Paginación
