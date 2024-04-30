@@ -2,7 +2,7 @@
 
 ![DevWebCamp](https://github.com/ArturoHDZG/DevWebCamp/blob/main/public/devwebcamp-preview.jpg)
 
-## Visit site [here](https://devwebcamp.ticocasas.domcloud.io)
+## Visit site [here](https://devwebcamp.ticocasas.domcloud.dev)
 
 This is the code repository for the "DevWebCamp" project created by ArturoHDZG.
 
